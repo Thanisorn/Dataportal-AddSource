@@ -22,7 +22,7 @@ class AddSourceForm extends Component {
     isSubmit: false,
     dateofCreate: new Date(),
     dateofUpdate: new Date(),
-    creator: 'kan ouivirus'
+    creator: 'kan ouivirus',
   }
 
   componentDidMount() {
@@ -50,14 +50,14 @@ class AddSourceForm extends Component {
       url: this.state.url,
       type: this.state.type,
       tag: this.state.tag,
-      dateofCreate: dateformat(this.state.dateofCreate, "dd, mm, yyyy"),
-      dateofUpdate: dateformat(this.state.dateofUpdate, "dd, mm, yyyy"),
+      dateofCreate: dateformat(this.state.dateofCreate, 'dd, mm, yyyy'),
+      dateofUpdate: dateformat(this.state.dateofUpdate, 'dd, mm, yyyy'),
       creator: this.state.creator,
     })
       .then((res) => {
         this.setState({
           isSubmit: true,
-          id: res.data
+          id: res.data,
         })
       })
       .catch(() => {
@@ -66,14 +66,14 @@ class AddSourceForm extends Component {
 
   render() {
     return (
-      console.log(dateformat(this.state.dateofCreate, "dd, mm, yyyy")),
       <div className='ui main container'>
         <h1>Add New Resource</h1>
         <div className='ui segment'>
           <div className='ui stackable grid'>
             <div className='ten wide column'>
               <form className='ui form' onSubmit={this.handleSubmit}>
-                <div className='field'>Resource Type
+                <div className='field'>
+                  <label htmlFor='tag'>Resource Type</label>
                   <Dropdown
                     selection
                     name='type'
